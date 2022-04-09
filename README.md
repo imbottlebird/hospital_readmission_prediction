@@ -2,7 +2,7 @@
 Study hospital readmission risk to assess the impact of telehealth interventions on diabetic patients with the ultimate goal of reducing the 30-day readmission rate.
 
 
-#### 1. Dataset
+### 1. Dataset
 
 1.	The dataset includes over 100,000 hospital discharges of over 70,000 diabetic patients from 130 hospitals across the United States during the period 1999 - 2008 . All patients were hospital inpatients for 1 - 14 days, and received both lab tests and medications while in the hospital. The 130 hospitals represented in the dataset vary in size and location: 58 are in the northeast United States and 78 are mid-sized (100 - 499 beds).
 2.	The dataset has total 101,766 observations of 45 variables. There are several Factors datatypes in the dataset; race, gender, age, admissionType, and admissionSource;
@@ -10,7 +10,7 @@ Study hospital readmission risk to assess the impact of telehealth interventions
 4.	75% of dataset will be used to train the model, and rest 25% will be used to evaluate the accuracy of the model.
 
 
-#### 2. Loss mastrix definition for CART model
+### 2. Loss mastrix definition for CART model
 
 Given the cost of 30-day unplanned readmission and telehealth intervention are $35,000 and $1,200 respectively, the cost incurred for each possible case is defined as below.
 *	Cost of True Negative (TN): 0
@@ -55,7 +55,7 @@ LossMatrix
 
 
 
-#### 3. CART model (cp = 0.001; loss matrix defined in section 2)
+### 3. CART model (cp = 0.001; loss matrix defined in section 2)
 <img width="600" alt="image" src="https://user-images.githubusercontent.com/55460693/162591647-932c0158-0f78-4c13-9464-c4737297c39e.png">
 
 ```bash
@@ -68,7 +68,7 @@ prp(readm.mod.2, digits=3)
 ```
 
 
-#### 4. Assessment of the model predictive performance
+### 4. Assessment of the model predictive performance
 Performance of 30-day unplanned readmissions using the test set
 
 <ins>Predictive Performance:</ins>
@@ -113,7 +113,7 @@ FPR.20 <- confusion.matrix.2[1,2]/sum(confusion.matrix.2[1,])
 ```
 
 
-#### 5. Varying the cost telehealth intervention to examine the sensitivity of the benefits
+### 5. Varying the cost telehealth intervention to examine the sensitivity of the benefits
 
 With the variation of the intervention cost by $200, the changes in the number of readmission and total monetary costs are shown as below.
 
@@ -122,3 +122,7 @@ With the variation of the intervention cost by $200, the changes in the number o
 The number of readmissions increases as the cost of intervention increases, because the higher cost of intervention defined in the loss matrix will likely to classify more people in the ‘don’t intervene’ area to minimize the total monetary cost, causing the rise in the number of readmissions.
 
 The total monetary cost also increases as the cost of intervention increases, which is due to the rise of intervention cost itself as well as the increased costs by the rise in the 30-days unplanned readmissions number.
+
+
+Data source:
+Beata Strack, Jonathan P. DeShazo, Chris Gennings, Juan L. Olmo, Sebastian Ventura, Krzysztof J. Cios, and John N. Clore, “Impact of HbA1c Measurement on Hospital Readmission Rates: Analysis of 70,000 Clinical Database Patient Records,” BioMed Research International, vol. 2014, Article ID 781670, 11 pages, 2014.
