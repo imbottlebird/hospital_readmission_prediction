@@ -23,6 +23,7 @@ Based on the defined costs above, the values for creating the loss matrix are as
 This CART model seeks to minimize out-of-sample misclassification cost.
 
 Cost=(# of FN)× L_FN+(# of FP)× L_FP
+![\Large cost=(\# of FN) \cdot L_FN + (\# of FP) \cdot L_FP](https://latex.codecogs.com/svg.latex?\Large&space;cost=(\# of FN) \cdot L_FN + (\# of FP) \cdot L_FP) 
 
 <img src="https://latex.codecogs.com/svg.latex?\Large&space;cost=(# of FN) \cdot L_FN + (# of FP) \cdot L_FP" title="cost equation" />
 
