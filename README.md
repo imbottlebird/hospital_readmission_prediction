@@ -25,5 +25,7 @@ This CART model seeks to minimize out-of-sample misclassification cost.
 Cost=(# of FN)× L_FN+(# of FP)× L_FP
 ![\Large cost=(\# of FN) \cdot L_FN + (\# of FP) \cdot L_FP](https://latex.codecogs.com/svg.latex?\Large&space;cost=(\# of FN) \cdot L_FN + (\# of FP) \cdot L_FP) 
 
+![\Large x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}](https://latex.codecogs.com/svg.latex?\Large&space;x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}) 
+
 <img src="https://latex.codecogs.com/svg.latex?\Large&space;cost=(# of FN) \cdot L_FN + (# of FP) \cdot L_FP" title="cost equation" />
 
