@@ -17,7 +17,7 @@ Given the cost of 30-day unplanned readmission and telehealth intervention are $
 *	Cost of True Positive (PN): $1,200 + ($35,000 * 0.75) = $27,450
 
 Based on the defined costs above, the values for creating the loss matrix are as below
-*	L_FP = FP – TN = $1,200
+*	<img src="https://latex.codecogs.com/svg.image?\small&space;L_{FP}=FP&space;-&space;TN&space;=&space;\$1,200&space;" title="https://latex.codecogs.com/svg.image?\small L_{FP}=FP - TN = \$1,200 " />
 * L_FN = FN – TP = $7,550
 
 This CART model seeks to minimize out-of-sample misclassification cost.
