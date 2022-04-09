@@ -55,7 +55,7 @@ LossMatrix
 
 
 
-### 3. CART model (cp = 0.001; loss matrix defined in section 2)
+### 3. CART model (cp = 0.001; loss matrix as defined in section 2)
 <img width="600" alt="image" src="https://user-images.githubusercontent.com/55460693/162591647-932c0158-0f78-4c13-9464-c4737297c39e.png">
 
 ```bash
