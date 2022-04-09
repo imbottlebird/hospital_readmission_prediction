@@ -75,7 +75,7 @@ Performance of 30-day unplanned readmissions using the test set
 
 <img width="500" alt="image" src="https://user-images.githubusercontent.com/55460693/162591788-90f902a9-b7c3-4cb4-9799-bb754be1dc07.png">
 
-The column of table indicates the predicted values and the row indicates the actual values. The telehealth intervention is not practiced in Current Practice, hence the values in column ‘1’ are all set to ‘0’ as a default stage.
+The column of table indicates the predicted values and the row indicates the actual values. The telehealth intervention is not practiced in *Current Practice*, hence the values in column ‘1’ are all set to ‘0’ as a default stage.
 
 *New Model* predicts the number of patients in the column ‘1’ who are likely to readmit to hospital within the 30 days from the period of discharge. The predications are conducted based on the CART model that incorporates the cost of readmission and telehealth intervention defined in the loss matrix.
 
