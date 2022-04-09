@@ -70,7 +70,7 @@ total.cost
 readm.pat <-sum(confusion.matrix.2[2,1]+(confusion.matrix.2[2,2]*0.75))
 readm.pat
 
-# Computation of accuracy, TPR and FPR for both models
+# Computation of accuracy, TPR and FPR for both models 
 accuracy <- sum(diag(confusion.matrix))/sum(confusion.matrix)
 accuracy
 accuracy.2 <- sum(diag(confusion.matrix.2))/sum(confusion.matrix.2)
