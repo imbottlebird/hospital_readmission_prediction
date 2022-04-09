@@ -22,5 +22,5 @@ Based on the defined costs above, the values for creating the loss matrix are as
 
 This CART model seeks to minimize out-of-sample misclassification cost.
 
-<img src="https://latex.codecogs.com/svg.image?cost&space;=&space;(\sharp\:&space;\:&space;of&space;\:&space;\:&space;FN)\times&space;F_{FN}&plus;(\sharp\:&space;\:&space;of\:&space;\:&space;FP)&space;\times&space;L_{FP}" title="https://latex.codecogs.com/svg.image?cost = (\sharp\: \: of \: \: FN)\times F_{FN}+(\sharp\: \: of\: \: FP) \times L_{FP}" />
+<img src="https://latex.codecogs.com/svg.image?cost&space;=&space;(\sharp\:&space;\:&space;of&space;\:&space;\:&space;FN)\times&space;L_{FN}&plus;(\sharp\:&space;\:&space;of\:&space;\:&space;FP)&space;\times&space;L_{FP}" title="https://latex.codecogs.com/svg.image?cost = (\sharp\: \: of \: \: FN)\times L_{FN}+(\sharp\: \: of\: \: FP) \times L_{FP}" />
 
