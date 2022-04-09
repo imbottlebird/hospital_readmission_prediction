@@ -124,6 +124,8 @@ The number of readmissions increases as the cost of intervention increases, beca
 The total monetary cost also increases as the cost of intervention increases, which is due to the rise of intervention cost itself as well as the increased costs by the rise in the 30-days unplanned readmissions number.
 
 
+Note: To obtain a CART model with a higher TPR, update the loss matrix with a higher value (penalty) of the false negative (FN). To obtain a lower FPR, update the matrix with a lower value of the true negative (TN).
+
 **Data source:**
 
 The data are submitted on behalf of the Center for Clinical and Translational Research, Virginia Commonwealth University, a recipient of NIH CTSA grant UL1 TR00058 and a recipient of the CERNER data. John Clore (jclore '@' vcu.edu), Krzysztof J. Cios (kcios '@' vcu.edu), Jon DeShazo (jpdeshazo '@' vcu.edu), and Beata Strack (strackb '@' vcu.edu). This data is a de-identified abstract of the Health Facts database (Cerner Corporation, Kansas City, MO).
