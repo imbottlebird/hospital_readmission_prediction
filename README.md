@@ -24,3 +24,16 @@ This CART model seeks to minimize out-of-sample misclassification cost.
 
 <img src="https://latex.codecogs.com/svg.image?cost&space;=&space;(\sharp\:&space;\:&space;of&space;\:&space;\:&space;FN)\times&space;L_{FN}&plus;(\sharp\:&space;\:&space;of\:&space;\:&space;FP)&space;\times&space;L_{FP}" title="https://latex.codecogs.com/svg.image?cost = (\sharp\: \: of \: \: FN)\times L_{FN}+(\sharp\: \: of\: \: FP) \times L_{FP}" />
 
+### 3. CART model (cp = 0.001; loss matrix defined in section 2)
+<img width="430" alt="image" src="https://user-images.githubusercontent.com/55460693/162591647-932c0158-0f78-4c13-9464-c4737297c39e.png">
+
+### 4. Assessment of the model predictive performance
+Performance of 30-day unplanned readmissions using the test set
+
+<img width="775" alt="image" src="https://user-images.githubusercontent.com/55460693/162591788-90f902a9-b7c3-4cb4-9799-bb754be1dc07.png">
+
+
+The column of table indicates the predicted values and the row indicates the actual values. The telehealth intervention is not practiced in Current Practice, hence the values in column ‘1’ are all set to ‘0’ as a default stage.
+
+New Model predicts the number of patients in the column ‘1’ who are likely to readmit to hospital within the 30 days from the period of discharge. The predications are conducted based on the CART model that incorporates the cost of readmission and telehealth intervention defined in the loss matrix.
+
