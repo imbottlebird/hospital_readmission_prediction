@@ -1,14 +1,14 @@
 ## Preventing Hospital Readmissions through Telehealth Intervention
 Study hospital readmission risk to assess the impact of telehealth interventions on diabetic patients with the ultimate goal of reducing the 30-day readmission rate.
 
-### 1. Dataset
+#### 1. Dataset
 
 1.	The dataset includes over 100,000 hospital discharges of over 70,000 diabetic patients from 130 hospitals across the United States during the period 1999 - 2008 . All patients were hospital inpatients for 1 - 14 days, and received both lab tests and medications while in the hospital. The 130 hospitals represented in the dataset vary in size and location: 58 are in the northeast United States and 78 are mid-sized (100 - 499 beds).
 2.	The dataset has total 101,766 observations of 45 variables. There are several Factors datatypes in the dataset; race, gender, age, admissionType, and admissionSource;
 3.	The variable we are predicting is readmission (INT). The datatype needs to be converted into Factor type to create a CART model for classification, not Regression.
 4.	75% of dataset will be used to train the model, and rest 25% will be used to evaluate the accuracy of the model.
 
-### 2. Loss mastrix definition for CART model
+#### 2. Loss mastrix definition for CART model
 
 Given the cost of 30-day unplanned readmission and telehealth intervention are $35,000 and $1,200 respectively, the cost incurred for each possible case is defined as below.
 *	Cost of True Negative (TN): 0
@@ -24,16 +24,38 @@ This CART model seeks to minimize out-of-sample misclassification cost.
 
 <img src="https://latex.codecogs.com/svg.image?cost&space;=&space;(\sharp\:&space;\:&space;of&space;\:&space;\:&space;FN)\times&space;L_{FN}&plus;(\sharp\:&space;\:&space;of\:&space;\:&space;FP)&space;\times&space;L_{FP}" title="https://latex.codecogs.com/svg.image?cost = (\sharp\: \: of \: \: FN)\times L_{FN}+(\sharp\: \: of\: \: FP) \times L_{FP}" />
 
-### 3. CART model (cp = 0.001; loss matrix defined in section 2)
+#### 3. CART model (cp = 0.001; loss matrix defined in section 2)
 <img width="500" alt="image" src="https://user-images.githubusercontent.com/55460693/162591647-932c0158-0f78-4c13-9464-c4737297c39e.png">
 
-### 4. Assessment of the model predictive performance
+#### 4. Assessment of the model predictive performance
 Performance of 30-day unplanned readmissions using the test set
 
+<ins>Predictive Performance:</ins>
 <img width="500" alt="image" src="https://user-images.githubusercontent.com/55460693/162591788-90f902a9-b7c3-4cb4-9799-bb754be1dc07.png">
 
 
 The column of table indicates the predicted values and the row indicates the actual values. The telehealth intervention is not practiced in Current Practice, hence the values in column ‘1’ are all set to ‘0’ as a default stage.
 
-New Model predicts the number of patients in the column ‘1’ who are likely to readmit to hospital within the 30 days from the period of discharge. The predications are conducted based on the CART model that incorporates the cost of readmission and telehealth intervention defined in the loss matrix.
+*New Model* predicts the number of patients in the column ‘1’ who are likely to readmit to hospital within the 30 days from the period of discharge. The predications are conducted based on the CART model that incorporates the cost of readmission and telehealth intervention defined in the loss matrix.
 
+<ins>Monetary Cost Comparison:</ins>
+**Current Practice**
+* Total cost of readmission: 2,839 × $35,000 = **<ins>$99,365,000</ins>**
+
+**New Model**
+* Cost of intervention: (4,565 + 1,055) × $1,200 = $6,744,000
+* Cost of readmission: ((1,055 × 0.75) +1,784) × $35,000 = $90,133,750
+* Total cost: **<ins>$96,877,750</ins>**
+
+With the anticipated cost of an unplanned readmission $35,000 and a telehealth intervention $1,200, the *Current Practice* generates the total cost of **$99,365,000** for the cost of readmission alone. However, with the *New Model* developed to minimize the total estimated cost through the telehealth intervention:
+* The total monetary cost is expected to reduce by $2,487,250, which is equivalent to 2.5% decrease from the initial amount yielded by the *Current Practice*
+* The number of 30-days unplanned readmissions is also expected to reduce by 264, equivalent to 9.3% decrease from the *Current Practice*
+
+#### 5. Varying the cost telehealth intervention to examine the sensitivity of the benefits
+
+With the variation of the intervention cost by $200, the changes in the number of readmission and total monetary costs are shown as below.
+<img width="550" alt="image" src="https://user-images.githubusercontent.com/55460693/162591942-20d69679-bcb4-4ae3-bbe6-12688df7338f.png">
+
+The number of readmissions increases as the cost of intervention increases, because the higher cost of intervention defined in the loss matrix will likely to classify more people in the ‘don’t intervene’ area to minimize the total monetary cost, causing the rise in the number of readmissions.
+
+The total monetary cost also increases as the cost of intervention increases, which is due to the rise of intervention cost itself as well as the increased costs by the rise in the 30-days unplanned readmissions number.
