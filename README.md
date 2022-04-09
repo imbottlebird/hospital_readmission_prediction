@@ -24,13 +24,52 @@ This CART model seeks to minimize out-of-sample misclassification cost.
 
 <img src="https://latex.codecogs.com/svg.image?cost&space;=&space;(\sharp\:&space;\:&space;of&space;\:&space;\:&space;FN)\times&space;L_{FN}&plus;(\sharp\:&space;\:&space;of\:&space;\:&space;FP)&space;\times&space;L_{FP}" title="https://latex.codecogs.com/svg.image?cost = (\sharp\: \: of \: \: FN)\times L_{FN}+(\sharp\: \: of\: \: FP) \times L_{FP}" />
 
+"""
+#CART model with cp=0.001
+readm.mod = rpart(readmission ~ .,
+                  data = readm.train, 
+                  method = "class", 
+                  cp=0.001)
+prp(readm.mod)
+
+#predict the readmission
+pred <- predict(readm.mod, newdata = readm.test, type = "class")
+
+#confusion matrix. first arg=row, second arg=col - ex. [row,col]
+confusion.matrix = table(readm.test$readmission, pred)
+confusion.matrix
+
+#define the loss matrix for CART Model
+LossMatrix = matrix(0,2,2)
+LossMatrix[2,1] = 1200
+LossMatrix[1,2] = 7550
+#the final table:
+LossMatrix
+"""
+**Screenshot of loss matrix in R**
+
+<img width="102" alt="image" src="https://user-images.githubusercontent.com/55460693/162591979-de3f1114-e92d-4454-bd54-77bee1a6f3fd.png">
+
+
+
 #### 3. CART model (cp = 0.001; loss matrix defined in section 2)
-<img width="500" alt="image" src="https://user-images.githubusercontent.com/55460693/162591647-932c0158-0f78-4c13-9464-c4737297c39e.png">
+<img width="600" alt="image" src="https://user-images.githubusercontent.com/55460693/162591647-932c0158-0f78-4c13-9464-c4737297c39e.png">
+
+"""
+readm.mod.2 = rpart(readmission~.,
+                  data = readm.train,
+                  parms=list(loss=LossMatrix),
+                  cp=0.001)
+
+prp(readm.mod.2, digits=3)
+
+"""
 
 #### 4. Assessment of the model predictive performance
 Performance of 30-day unplanned readmissions using the test set
 
 <ins>Predictive Performance:</ins>
+
 <img width="500" alt="image" src="https://user-images.githubusercontent.com/55460693/162591788-90f902a9-b7c3-4cb4-9799-bb754be1dc07.png">
 
 
@@ -39,6 +78,7 @@ The column of table indicates the predicted values and the row indicates the act
 *New Model* predicts the number of patients in the column ‘1’ who are likely to readmit to hospital within the 30 days from the period of discharge. The predications are conducted based on the CART model that incorporates the cost of readmission and telehealth intervention defined in the loss matrix.
 
 <ins>Monetary Cost Comparison:</ins>
+
 **Current Practice**
 * Total cost of readmission: 2,839 × $35,000 = **<ins>$99,365,000</ins>**
 
@@ -51,9 +91,31 @@ With the anticipated cost of an unplanned readmission $35,000 and a telehealth i
 * The total monetary cost is expected to reduce by $2,487,250, which is equivalent to 2.5% decrease from the initial amount yielded by the *Current Practice*
 * The number of 30-days unplanned readmissions is also expected to reduce by 264, equivalent to 9.3% decrease from the *Current Practice*
 
+"""
+#make predictions.
+pred.2 = predict(readm.mod.2, newdata=readm.test, type="class")
+#view the confusion matrix.
+confusion.matrix.2 = table(readm.test$readmission, pred.2)
+confusion.matrix.2
+
+# Computation of accuracy, TPR and FPR for both models
+accuracy <- sum(diag(confusion.matrix))/sum(confusion.matrix)
+accuracy.2 <- sum(diag(confusion.matrix.2))/sum(confusion.matrix.2)
+
+TPR <- confusion.matrix[2,2]/sum(confusion.matrix[2,])
+TPR.2 <- confusion.matrix.2[2,2]/sum(confusion.matrix.2[2,])
+
+FPR <- confusion.matrix[1,2]/sum(confusion.matrix[1,])
+FPR.20 <- confusion.matrix.2[1,2]/sum(confusion.matrix.2[1,])
+![image](https://user-images.githubusercontent.com/55460693/162592003-154a2996-d2b1-4c60-92c3-bc30c19d945a.png)
+
+"""
+
+
 #### 5. Varying the cost telehealth intervention to examine the sensitivity of the benefits
 
 With the variation of the intervention cost by $200, the changes in the number of readmission and total monetary costs are shown as below.
+
 <img width="550" alt="image" src="https://user-images.githubusercontent.com/55460693/162591942-20d69679-bcb4-4ae3-bbe6-12688df7338f.png">
 
 The number of readmissions increases as the cost of intervention increases, because the higher cost of intervention defined in the loss matrix will likely to classify more people in the ‘don’t intervene’ area to minimize the total monetary cost, causing the rise in the number of readmissions.
