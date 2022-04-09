@@ -109,7 +109,6 @@ TPR.2 <- confusion.matrix.2[2,2]/sum(confusion.matrix.2[2,])
 
 FPR <- confusion.matrix[1,2]/sum(confusion.matrix[1,])
 FPR.20 <- confusion.matrix.2[1,2]/sum(confusion.matrix.2[1,])
-![image](https://user-images.githubusercontent.com/55460693/162592003-154a2996-d2b1-4c60-92c3-bc30c19d945a.png)
 
 ```
 
