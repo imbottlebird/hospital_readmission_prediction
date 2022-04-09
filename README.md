@@ -12,7 +12,7 @@ Description: The dataset includes over 100,000 hospital discharges of over 70,00
 
 ### 2. Loss mastrix definition for CART model
 
-The hospital estimated the cost of 30-day unplanned readmission and telehealth intervention are $35,000 and $1,200 respectively. From published information at a similar institution, telehealth interventions will reduce the incidence of 30-day unplanned readmissions in the treated population by 25%.
+Hospitals estimated the cost of 30-day unplanned readmission and telehealth intervention are $35,000 and $1,200 respectively. From published information at a similar institution, telehealth interventions will reduce the incidence of 30-day unplanned readmissions in the treated population by 25%.
 
 *	Cost of True Negative (TN): 0
 *	Cost of False Positive (FP): $1,200
