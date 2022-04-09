@@ -5,9 +5,9 @@ Study hospital readmission risk to assess the impact of telehealth interventions
 ### 1. Dataset
 Description: The dataset includes over 100,000 hospital discharges of over 70,000 diabetic patients from 130 hospitals across the United States during the period 1999 - 2008 . All patients were hospital inpatients for 1 - 14 days, and received both lab tests and medications while in the hospital. The 130 hospitals represented in the dataset vary in size and location: 58 are in the northeast United States and 78 are mid-sized (100 - 499 beds).
 
-1.	The dataset has total 101,766 observations of 45 variables. There are several Factors datatypes in the dataset; race, gender, age, admissionType, and admissionSource;
-2.	The target variable to predict is readmission (INT). The datatype needs to be converted into Factor type to create a CART model for classification, not Regression.
-3.	75% of dataset will be used to train the model, and rest 25% will be used to evaluate the accuracy of the model.
+* The dataset has total 101,766 observations of 45 variables. There are several Factors datatypes in the dataset; race, gender, age, admissionType, and admissionSource;
+* The target variable to predict is readmission (INT). The datatype needs to be converted into Factor type to create a CART model for classification, not Regression.
+* 75% of dataset will be used to train the model, and rest 25% will be used to evaluate the accuracy of the model.
 
 
 ### 2. Loss mastrix definition for CART model
@@ -124,5 +124,6 @@ The number of readmissions increases as the cost of intervention increases, beca
 The total monetary cost also increases as the cost of intervention increases, which is due to the rise of intervention cost itself as well as the increased costs by the rise in the 30-days unplanned readmissions number.
 
 
-Data source:
+**Data source:**
+
 Beata Strack, Jonathan P. DeShazo, Chris Gennings, Juan L. Olmo, Sebastian Ventura, Krzysztof J. Cios, and John N. Clore, “Impact of HbA1c Measurement on Hospital Readmission Rates: Analysis of 70,000 Clinical Database Patient Records,” BioMed Research International, vol. 2014, Article ID 781670, 11 pages, 2014.
