@@ -71,7 +71,7 @@ prp(readm.mod.2, digits=3)
 
 
 ### 4. Assessment of the model predictive performance
-Performance of 30-day unplanned readmissions using the test set
+Performance of 30-day unplanned readmissions using the test set.
 
 <ins>Predictive Performance:</ins>
 
@@ -115,7 +115,7 @@ FPR.20 <- confusion.matrix.2[1,2]/sum(confusion.matrix.2[1,])
 ```
 
 
-### 5. Varying the cost telehealth intervention to examine the sensitivity of the benefits
+### 5. Varying the cost of telehealth intervention to examine the sensitivity of the benefits
 
 With the variation of the intervention cost by $200, the changes in the number of readmission and total monetary costs are shown as below.
 
