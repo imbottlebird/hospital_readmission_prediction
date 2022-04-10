@@ -121,7 +121,7 @@ With the variation of the intervention cost by $200, the changes in the number o
 
 <img width="550" alt="image" src="https://user-images.githubusercontent.com/55460693/162591942-20d69679-bcb4-4ae3-bbe6-12688df7338f.png">
 
-The number of readmissions increases as the cost of intervention increases, because the higher cost of intervention defined in the loss matrix will likely to classify more people in the ‘don’t intervene’ area to minimize the total monetary cost, causing the rise in the number of readmissions.
+The number of readmissions increases as the cost of intervention increases, because the higher cost of intervention defined in the loss matrix will likely to classify more people in the "don't intervene" area to minimize the total monetary cost, causing the rise in the number of readmissions.
 
 The total monetary cost also increases as the cost of intervention increases, which is due to the rise of intervention cost itself as well as the increased costs by the rise in the 30-days unplanned readmissions number.
 
