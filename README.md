@@ -12,13 +12,13 @@ Description: The dataset includes over 100,000 hospital discharges of over 70,00
 
 ### 2. Loss matrix definition for CART model
 
-Hospitals estimated the cost of 30-day unplanned readmission and telehealth intervention are $35,000 and $1,200 respectively. From published information at a similar institution, telehealth interventions will reduce the incidence of 30-day unplanned readmissions in the treated population by 25%.
+Hospitals estimated that the cost of 30-day unplanned readmission and telehealth intervention are $35,000 and $1,200 respectively. From published information at a similar institution, telehealth interventions will reduce the incidence of 30-day unplanned readmissions in the treated population by 25%.
 
 The costs for all cases can be defined as below:
 *	Cost of True Negative (TN): 0
 *	Cost of False Positive (FP): $1,200
 *	Cost of False Negative (FN): $35,000
-*	Cost of True Positive (PN): $1,200 + ($35,000 * 0.75) = $27,450
+*	Cost of True Positive (TP): $1,200 + ($35,000 * 0.75) = $27,450
 
 Based on the defined costs above, the values for creating the loss matrix are as below
 *	<img src="https://latex.codecogs.com/svg.image?\small&space;L_{FP}=FP&space;-&space;TN&space;=&space;\$1,200&space;" title="https://latex.codecogs.com/svg.image?\small L_{FP}=FP - TN = \$1,200 " />
